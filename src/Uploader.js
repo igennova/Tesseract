@@ -1,10 +1,11 @@
-import {useState,Fragment,useEffect} from "react";
-import NavScrollExample from './Navbar';
+import { useState, Fragment, useEffect } from "react";
 import Tesseract from 'tesseract.js';
 import Footer from './Footer';
-const Upload=()=>{
-    const [image, setImage] = useState(null);
+
+const Upload = () => {
+  const [image, setImage] = useState(null);
   const [textResult, setTextResult] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleImage = (event) => {
     setImage(event.target.files[0]);
@@ -16,6 +17,7 @@ const Upload=()=>{
 
   useEffect(() => {
     const imagetoText = async () => {
+      setIsLoading(true);
       try {
         const { data: { text } } = await Tesseract.recognize(
           image,
@@ -25,8 +27,10 @@ const Upload=()=>{
           }
         );
         setTextResult(text);
+        setIsLoading(false);
       } catch (error) {
         console.error(error);
+        setIsLoading(false);
       }
     };
 
@@ -38,16 +42,16 @@ const Upload=()=>{
   return (
     <Fragment>
       <div className='content'>
-        {/* <NavScrollExample /> */}
         <div className='container'>
           <div className='image-container'>
             <h1>Image</h1>
             <label for="upload" class="input-file">
+              <input type="file" accept="image/*" id="upload" class="file-input" onChange={handleImage} />
+            </label>
 
-  <input type="file" accept="image/*" id="upload" class="file-input" onChange={handleImage} />
-</label>
-
-            {image && (
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : image && (
               <img src={URL.createObjectURL(image)} alt="image" />
             )}
           </div>
@@ -58,12 +62,10 @@ const Upload=()=>{
             )}
           </div>
         </div>
-      
       </div>
-      <div className='footer'>
      
-      </div>
     </Fragment>
+  );
+}
 
-  )}
-export default Upload
+export default Upload;

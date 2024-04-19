@@ -9,7 +9,7 @@ import Slider from './Slider';
 const App = () => {
   return(
     <Fragment>
-      <Slider/>
+    
       <div className='heading'>NOVA CONVERTOR</div>
       <Upload/>
     </Fragment>

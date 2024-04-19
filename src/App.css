@@ -5,6 +5,7 @@
 .container {
   display: flex;
   justify-content: space-around;
+  padding: 40px 0px ;
 }
 
 .container .image-container,
@@ -99,4 +100,12 @@
   justify-content: center; /* Horizontally center */
   align-items: center; /* Vertically center */
   height: 60vh; /* Optional: Adjust the height as needed */
+}
+
+@media only screen and (max-width: 768px) {
+  .heading {
+    font-size: 50px; /* Adjust font size for smaller screens */
+    height: auto; /* Allow the height to adjust automatically */
+    padding: 20px; /* Add padding for better spacing */
+  }
 }
