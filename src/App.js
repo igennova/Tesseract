@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment, useEffect, useState } from 'react';
+import "./App.css";
+import NavScrollExample from './Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Upload from './Uploader';
+import Slider from './Slider';
+
+const App = () => {
+  return(
+    <Fragment>
+      <Slider/>
+      <div className='heading'>NOVA CONVERTOR</div>
+      <Upload/>
+    </Fragment>
+  )
+  
+  
+};
 
 export default App;

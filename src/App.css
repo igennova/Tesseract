@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
+*{
+  background-color: #1a1919; /* Set body background color to black */
+  color: #fff; /* Set text color to white */
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-around;
+}
+
+.container .image-container,
+.container .text-container {
+  width: 40%;
+  padding: 10px;
+  border: 1px solid #45e70f;
+  border-radius: 8px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.container img {
+  max-width: 90%;
+  height: auto;
+}
+
+.container .text-container {
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center; /* Center vertically */
 }
 
-.App-link {
-  color: #61dafb;
+.container .text-area-wrapper {
+  width: 80%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container textarea {
+  width: 90%; /* Take up full width */
+  height: 80vh; /* Adjust the height as needed */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.input-file {
+  display: inline-block;
+  position: relative;
+}
+
+.file-input {
+  /* Hide the file input */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.input-file::after {
+  /* Hide any content after the file input */
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1; /* Move behind the file input */
+}
+
+.input-file::before {
+  /* Button styling */
+  content: 'Upload Image';
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: 3px solid #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+.input-file:hover {
+  border-color: #eeee19;
+}
+.footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f9fa; /* Add your desired background color */
+
+  text-align: center; /* Center-align text */
+}
+.heading {
+  font-size: 90px;
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  height: 60vh; /* Optional: Adjust the height as needed */
 }
